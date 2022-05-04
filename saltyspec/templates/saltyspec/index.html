@@ -1,0 +1,25 @@
+{% load static %}
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script> 
+    <script type="text/javascript" src="{% static 'jquery_plantuml.js' %}"></script>
+</head>
+
+<body>
+    <p>Example</p>
+    <hr>
+    <img uml="
+Bob->Alice : foo
+Bob<--Alice : foo
+">
+    <hr>
+    <img uml="
+Bob->Alice : dummy
+Bob<--Alice : dummy
+">
+
+
+</body>
+
+</html>
