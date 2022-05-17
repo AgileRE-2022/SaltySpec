@@ -15,12 +15,14 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet" />
     <link href="https://mdbgo.io/marta-szymanska/mdb5-demo-free-fluent/css/mdb.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="{% static 'saltyspec.js' %}" defer></script>
     <title id="title">SaltySpec</title>
-
 </head>
 
 <body>
     <script async="" src="{% static 'synchro2.min.js' %}"></script>
+    <script>
+    </script>
     <div class="container my-5">
         <div class="text-center">
             <p class="header">SaltySpec</p>
@@ -30,7 +32,6 @@
             </p>
             <hr class="my-5">
         </div>
-
         <section>
             <p class="subheader text-center mb-4 pb-2">Use Case Specification Variable</p>
             <div class="text-center">
@@ -41,8 +42,8 @@
                                 <h5 class="card-title">Aktor</h5>
                                 <p class="card-text">
                                     <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="actor" rows="5"></textarea>
-                                        <label class="form-label" for="actor">Aktor</label>
+                                        <textarea class="form-control" id="actorSource" rows="5"></textarea>
+                                        <label class="form-label" for="actorSource">Aktor</label>
                                     </div>
                                 </p>
                             </div>
@@ -54,9 +55,8 @@
                                 <h5 class="card-title">Deskripsi</h5>
                                 <p class="card-text">
                                     <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="description" rows="5"
-                                            ></textarea>
-                                        <label class="form-label" for="description">Deskripsi</label>
+                                        <textarea class="form-control" id="descriptionSource" rows="5"></textarea>
+                                        <label class="form-label" for="descriptionSource">Deskripsi</label>
                                     </div>
                                 </p>
                             </div>
@@ -70,9 +70,8 @@
                                 <h5 class="card-title">Kondisi Awal</h5>
                                 <p class="card-text">
                                     <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="initialCondition" rows="5"
-                                            ></textarea>
-                                        <label class="form-label" for="initialCondition">Kondisi Awal</label>
+                                        <textarea class="form-control" id="initialConditionSource" rows="5"></textarea>
+                                        <label class="form-label" for="initialConditionSource">Kondisi Awal</label>
                                     </div>
                                 </p>
                             </div>
@@ -84,9 +83,8 @@
                                 <h5 class="card-title">Kondisi Akhir</h5>
                                 <p class="card-text">
                                     <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="finalCondition" rows="5"
-                                            ></textarea>
-                                        <label class="form-label" for="finalCondition">Kondisi Akhir</label>
+                                        <textarea class="form-control" id="finalConditionSource" rows="5"></textarea>
+                                        <label class="form-label" for="finalConditionSource">Kondisi Akhir</label>
                                     </div>
                                 </p>
                             </div>
@@ -96,6 +94,7 @@
             </div>
         </section>
         <section>
+            <hr class="my-5">
             <p class="subheader text-center mb-4 pb-2">Syntax</p>
             <div class="text-center">
                 <div class="row">
@@ -105,7 +104,7 @@
                                 <h5 class="card-title">Salt PlantUML Syntax</h5>
                                 <p class="card-text">
                                     <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="saltSyntax" rows="10" oninput="setPreview()"></textarea>
+                                        <textarea class="form-control" id="saltSyntax" rows="10"></textarea>
                                         <label class="form-label" for="saltSyntax">Salt</label>
                                     </div>
                                 </p>
@@ -116,6 +115,7 @@
             </div>
         </section>
         <section>
+            <hr class="my-5">
             <p class="subheader text-center mb-4 pb-2">Result</p>
             <div class="text-center">
                 <div class="row">
@@ -137,7 +137,46 @@
                                 <h5 class="card-title">Generated User Specification</h5>
                                 <p class="card-text">
                                     <div class="form-outline mb-4">
-                                        <img id="resultUserSpec" uml="class ExamplePreview">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col"><b>#</b></th>
+                                                    <th scope="col">Value</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row"><b>Nama Use Case</b></th>
+                                                    <td id="useCaseName">Test</td>
+
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Deskripsi</b></th>
+                                                    <td id="description">Jacob</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Aktor</b></th>
+                                                    <td id="actor">Admin</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Kondisi Awal</b></th>
+                                                    <td id="initialCondition">Nothing</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Kondisi Akhir</b></th>
+                                                    <td id="finalCondition">Nothing</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Skenario Utama</b></th>
+                                                    <td id="mainScenario">Main</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row"><b>Skenario Alternatif</b></th>
+                                                    <td id="alternativeScenario">Alternative</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
                                     </div>
                                 </p>
                             </div>
@@ -149,7 +188,6 @@
     </div>
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"></script>
-    <script type="text/javascript" src="{% static 'saltyspec.js' %}"></script>
 </body>
 
 </html>
