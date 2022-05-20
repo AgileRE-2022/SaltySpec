@@ -7,6 +7,8 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet" />
     <link href="https://mdbgo.io/marta-szymanska/mdb5-demo-free-fluent/css/mdb.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackedit.io/style.css" />
   </head>
 
@@ -14,7 +16,8 @@
     <div class="stackedit__left font-weight-bold" style="background-color: #eeeeee;">
       <div class="stackedit__toc">
         <ul>
-          <li><a href="/">Back to Home</a><i class="fas fa-angle-left"></i></li>
+          
+          <li><a href="/"><i class="fas fa-home me-2"></i> Home</a></li>
           <li style="background-color: #e0e0e0;"><a href="#welcome-to-saltyspec">Welcome to SaltySpec!</a></li>
           <li>
             <a href="#how-it-works">How It Works</a>
@@ -73,7 +76,7 @@
           <strong
             ><img
             class="mx-auto d-block"
-              src="https://lh4.googleusercontent.com/8QwsGuiIAbdd_NLqt0FCbAc6gMA4jP0ExsGpoNSD2yiYaUEJtCM1DGlkA3tsREuuMKeVAoOTNNm5zTdfGg99x362CkFwaSq_DFW2nBRXHmzhhX4lU9oBAYV2Rapxvi8mGaUN8ipN0R0KoUks3A"
+              src="https://lh4.googleusercontent.com/-XE-ni8LeZuKGd0lyCLiyy9tTAZotEK8jQ4BOl9tSNFTch9r36gKPWn0vi-K0x2I9UClVsP1ogM1NJrdP5eqim2oCspCQcEaTByuCvZFg4cxvctU7vYxu2aCHeqQuVHX3fNnF4ESUxu0voSJIg"
               alt=""
           /></strong>
         </p>
@@ -308,40 +311,27 @@ form --&gt; SALT(error)
         </p>
         <ol>
           <li>
-            SaltySpec requires Django to be installed first. In order to install
-            Django, you can see the Documentation for Django from the link
-            below:<br />
-            <a href="https://docs.djangoproject.com/en/4.0/"
-              >https://docs.djangoproject.com/en/4.0/</a
-            >
+            Make sure you have Git installed on your computer. If not, install Git from the following link: <br>
+            <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>
           </li>
           <li>
-            SaltySpec can be installed by cloning our github repository from the
-            link below:<br />
-            <a href="https://github.com/AgileRE-2022/SaltySpec"
-              >https://github.com/AgileRE-2022/SaltySpec</a
-            ><br />
-            Or simply download the zip file from the link below:<br />
-            <a
-              href="https://github.com/AgileRE-2022/SaltySpec/archive/refs/heads/main.zip"
-              >https://github.com/AgileRE-2022/SaltySpec/archive/refs/heads/main.zip</a
-            >
+            Clone the SaltySpec repository with the following code: <br>
+            <code>git clone https://github.com/AgileRE-2022/SaltySpec.git</code>
           </li>
           <li>
-            Once you have installed Django and SaltySpec, you can run the app
-            using the command “python
-            <a href="http://manage.py">manage.py</a> runserver”.<br />
-            <code>SaltySpec&gt;python manage.py runserver</code>
+            Open the SaltySpec folder and run the following command: <br>
+            <code>cd SaltySpec</code>
+          </li>
+          <li>
+            Run the following command to install the dependencies: <br>
+            <code>pip install -r requirements.txt</code>
+          </li>
+          <li>
+            Run the following command to run the application: <br>
+            <code>python manage.py runserver</code>
           </li>
         </ol>
-        <blockquote>
-          <p>
-            There is an alternative method to install SaltySpec by simply
-            using<br />
-            the following command in the directory.
-          </p>
-          <p><code>SaltySpec&gt;pip install -r requirements.txt</code></p>
-        </blockquote>
+
         <h1 id="limitations" class="font-weight-bold">Limitations</h1>
         <p>
           Due to our limited time constraint, this project had some limitations.
