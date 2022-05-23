@@ -1,7 +1,7 @@
 
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/AgileRE-2022/SaltySpec/test/saltyspec/static/saltyspec/images/logo-name.png">
+  <img src="https://raw.githubusercontent.com/AgileRE-2022/SaltySpec/main/saltyspec/static/saltyspec/images/logo-name.png">
 </p>
 <br>
 SaltySpec is a SALT (PlantUML)-based generator application that serves to generate Use Case Specifications from SALT GUI Wireframes Syntax. The name SaltySpec is taken from the abbreviation of the word "SALT GUI Wireframe to Use Case Specification".
