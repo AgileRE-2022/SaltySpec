@@ -23,7 +23,7 @@ There are a few steps needed to install SaltySpec, the steps consist of the foll
    ```
 4. Run the following command to install the dependencies:
    ```
-   pip install -r requirements.txtOr
+   pip install -r requirements.txt
    ```
 5. Run the follow command to run the application:
    ```
