@@ -15,77 +15,84 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet" />
     <link href="https://mdbgo.io/marta-szymanska/mdb5-demo-free-fluent/css/mdb.min.css" rel="stylesheet" />
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'saltyspec/images/logo.ico' %}">
     <script type="text/javascript" src="{% static 'saltyspec.js' %}" defer></script>
     <title id="title">SaltySpec</title>
+
+    <style>
+        #BgHeader {
+            background: url("{% static 'saltyspec/images/bgthebest.png' %}") no-repeat;
+            background-size: 70%;
+            background-position-x: center;
+            background-position-y: center;
+        }
+    </style>
 </head>
 
 <body>
     <script async="" src="{% static 'synchro2.min.js' %}"></script>
-    <script>
-    </script>
-    <div class="container my-5">
-        <div class="text-center">
+
+    <div class="container my-5" >
+        <div class="text-center mb-5 pb-5" id="BgHeader">
             <p class="header">SaltySpec</p>
-            <p class="subheader">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+            <p class="subheader">Salt to Use Case Specification on the go.</p>
             <p class="subtitle">
-                lorem ipsum dolor sit amet consectetur adipisicing elit.
+                SaltySpec is an app that helps in converting Salt GUI to Use Case Specification
             </p>
-            <hr class="my-5">
+
+            <p class="mt-5">In order to use our application, make sure to read our <br><a href="/documentation"
+                    class="btn btn-primary my-2">Documentation</a></p>
+
         </div>
+
+
         <section>
-            <p class="subheader text-center mb-4 pb-2">Use Case Specification Variable</p>
-            <div class="text-center">
-                <div class="row">
-                    <div class="col-md-6">
+            <div class="shadow-0">
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <p class="subheader my-4"><strong class="fw-bold text-primary me-4">1.</strong>Use Case
+                            Specification Variables</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <p class="note note-info opacity-70">
+                            <strong>First step:</strong> Fill out the following fields to give context to your use case
+                            specification.
+                        </p>
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Aktor</h5>
                                 <p class="card-text">
-                                    <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="actorSource" rows="5"></textarea>
-                                        <label class="form-label" for="actorSource">Aktor</label>
-                                    </div>
+                                <div class="form-outline mb-4">
+                                    <textarea class="form-control" id="actorSource" rows="1"></textarea>
+                                    <label class="form-label" for="actorSource">Aktor</label>
+                                </div>
                                 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
+
                                 <h5 class="card-title">Deskripsi</h5>
                                 <p class="card-text">
-                                    <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="descriptionSource" rows="5"></textarea>
-                                        <label class="form-label" for="descriptionSource">Deskripsi</label>
-                                    </div>
+                                <div class="form-outline mb-4">
+                                    <textarea class="form-control" id="descriptionSource" rows="3"></textarea>
+                                    <label class="form-label" for="descriptionSource">Deskripsi</label>
+                                </div>
                                 </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
+
                                 <h5 class="card-title">Kondisi Awal</h5>
                                 <p class="card-text">
-                                    <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="initialConditionSource" rows="5"></textarea>
-                                        <label class="form-label" for="initialConditionSource">Kondisi Awal</label>
-                                    </div>
+                                <div class="form-outline mb-4">
+                                    <textarea class="form-control" id="initialConditionSource" rows="2"></textarea>
+                                    <label class="form-label" for="initialConditionSource">Kondisi Awal</label>
+                                </div>
                                 </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
+
                                 <h5 class="card-title">Kondisi Akhir</h5>
                                 <p class="card-text">
-                                    <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="finalConditionSource" rows="5"></textarea>
-                                        <label class="form-label" for="finalConditionSource">Kondisi Akhir</label>
-                                    </div>
+                                <div class="form-outline mb-4">
+                                    <textarea class="form-control" id="finalConditionSource" rows="2"></textarea>
+                                    <label class="form-label" for="finalConditionSource">Kondisi Akhir</label>
+                                </div>
                                 </p>
                             </div>
                         </div>
@@ -93,20 +100,34 @@
                 </div>
             </div>
         </section>
+
+
         <section>
-            <hr class="my-5">
-            <p class="subheader text-center mb-4 pb-2">Syntax</p>
-            <div class="text-center">
-                <div class="row">
-                    <div class="col">
+            <div class="mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-9">
+                        <p class="subheader my-4"><strong class="fw-bold text-primary me-4">2.</strong>SALT Syntax</p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <p class="note note-info opacity-70">
+                            <strong>Second step:</strong> Write down your SALT GUI code. Make sure to follow our <a
+                                href="/documentation">Documentation</a>. Otherwise, there might not be enough
+                            information that
+                            we
+                            can
+                            use to be extracted and generated into Use Case Specification.
+                        </p>
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Salt PlantUML Syntax</h5>
                                 <p class="card-text">
-                                    <div class="form-outline mb-4">
-                                        <textarea class="form-control" id="saltSyntax" rows="10"></textarea>
-                                        <label class="form-label" for="saltSyntax">Salt</label>
-                                    </div>
+                                <div class="form-outline mb-4">
+                                    <textarea class="form-control" id="saltSyntax" rows="14"></textarea>
+                                    <label class="form-label" for="saltSyntax">Salt</label>
+                                </div>
                                 </p>
                             </div>
                         </div>
@@ -115,8 +136,11 @@
             </div>
         </section>
         <section>
-            <hr class="my-5">
-            <p class="subheader text-center mb-4 pb-2">Result</p>
+            <div class="row text-center justify-content-center mt-5">
+                <div class="col-md-9">
+                    <p class="subheader my-4"><strong class="fw-bold text-primary me-4">3.</strong>Result</p>
+                </div>
+            </div>
             <div class="text-center">
                 <div class="row">
                     <div class="col-md-6">
@@ -124,9 +148,9 @@
                             <div class="card-body">
                                 <h5 class="card-title">Wireframe</h5>
                                 <p class="card-text">
-                                    <div class="form-outline mb-4">
-                                        <img id="saltPreview" uml="class ExamplePreview">
-                                    </div>
+                                <div class="form-outline mb-4">
+                                    <img id="saltPreview" uml="class ExamplePreview">
+                                </div>
                                 </p>
                             </div>
                         </div>
@@ -136,52 +160,52 @@
                             <div class="card-body">
                                 <h5 class="card-title">Generated Use Case Specification</h5>
                                 <p class="card-text">
-                                    <div class="form-outline mb-4">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col"><b>#</b></th>
-                                                    <th scope="col">Value</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row"><b>Nama Use Case</b></th>
-                                                    <td id="useCaseName">Test</td>
+                                <div class="form-outline mb-4">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col"><b>#</b></th>
+                                                <th scope="col">Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row"><b>Nama Use Case</b></th>
+                                                <td id="useCaseName">Test</td>
 
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row"><b>Deskripsi</b></th>
-                                                    <td id="description">Jacob</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row"><b>Aktor</b></th>
-                                                    <td id="actor">Admin</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row"><b>Kondisi Awal</b></th>
-                                                    <td id="initialCondition">Nothing</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row"><b>Kondisi Akhir</b></th>
-                                                    <td id="finalCondition">Nothing</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row"><b>Temporary Form Action</b></th>
-                                                    <td id="formProcedure">Main</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row"><b>Skenario Utama</b></th>
-                                                    <td id="mainScenario">Main</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row"><b>Skenario Alternatif</b></th>
-                                                    <td id="alternativeScenario">Alternative</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><b>Deskripsi</b></th>
+                                                <td id="description">Jacob</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><b>Aktor</b></th>
+                                                <td id="actor">Admin</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><b>Kondisi Awal</b></th>
+                                                <td id="initialCondition">Nothing</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><b>Kondisi Akhir</b></th>
+                                                <td id="finalCondition">Nothing</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><b>Temporary Form Action</b></th>
+                                                <td id="formProcedure">Main</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><b>Skenario Utama</b></th>
+                                                <td id="mainScenario">Main</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row"><b>Skenario Alternatif</b></th>
+                                                <td id="alternativeScenario">Alternative</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
 
-                                    </div>
+                                </div>
                                 </p>
                             </div>
                         </div>
@@ -189,7 +213,63 @@
                 </div>
             </div>
         </section>
+
+
+
     </div>
+
+    <div class="py-5">
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-light text-center text-black text-lg-start opacity-70 mt-5">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row justify-content-center">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">About this project</h5>
+
+                    <p>
+                        This project was done under AgileRE-2022 by the topic of generating Use Case Specification from
+                        SALT GUI. Project repository can be found at <a
+                            href="https://github.com/AgileRE-2022/SaltySpec">Github</a>. <a
+                            href="/documentation">Documentation</a> avalaible on this site. Publication regarding to the
+                        project will be discussed later in the future.
+                    </p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">External Links</h5>
+
+                    <a href="https://plantuml.com/salt">SALT GUI Documentation</a><br>
+                    <a href="https://www.djangoproject.com/">Django</a><br>
+                           
+                    <a href="https://github.com/AgileRE-2022/SaltySpec">SaltySpec on Github</a><br>
+                    <a href="/documentation">SaltySpec Documentation</a><br>
+                </div>
+                <!--Grid column-->
+            </div>
+            <!--Grid row-->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3" style="background-color: instainstall ;">©
+            <script>
+                var CurrentYear = new Date().getFullYear()
+                document.write(CurrentYear)
+            </script> Copyright:
+            <strong> SaltySpec</strong>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"></script>
 </body>
