@@ -1,3 +1,6 @@
+var lineWithBracket = [];
+var lineWithColon = [];
+
 let compress = (s) => {
 	s = unescape(encodeURIComponent(s));
 	var arr = [];
@@ -21,6 +24,59 @@ let delay = (function () {
 	};
 })();
 
+
+function handleProcedure(procedure) {
+	// print all line that include colon
+	let lines = procedure.split('\n');
+	for (let i = 0; i < lines.length; i++) {
+		// label detection
+		if (lines[i].includes(':')) {
+			// remove colon symbol in string
+			let line = lines[i].replace(':', '').trim();
+			lineWithColon.push(line);
+			// button detection
+			// TODO: add support for checkbox detection
+		} else if (lines[i].includes('[')) {
+			// remove square bracket symbol in string
+			let line = lines[i].replace('[', '').replace(']', '').trim();
+			lineWithBracket.push(line);
+		}
+	}
+}
+
+function handleResult(resultString, status) {
+	let procedure = lineWithColon.map((line) => {
+		return "Mengisi input " + line
+	});
+	procedure.push("Menekan tombol " + lineWithBracket[0])
+	let success = resultString.split('\n').filter((line) => {
+		return line.trim().length > 0
+	});
+	let successMsg = []
+	let format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|<>\/?~]/;
+	success.forEach(element => {
+		if (!format.test(element)) {
+			successMsg.push(element)
+		}
+	});
+	// convert sucessMsg array into string
+	let successString = successMsg.join(' ')
+	procedure.push("Muncul pesan " + successString)
+	if (status) {
+		$('#mainScenario').empty();
+		procedure.forEach((line, idx) => {
+			$('#mainScenario').append(`${idx + 1}. ${line} <br>`)
+		})
+	} else {
+		$('#alternativeScenario').empty();
+		procedure.forEach((line, idx) => {
+			$('#alternativeScenario').append(`${idx + 1}. ${line} <br>`)
+		})
+	}
+
+}
+
+
 let setUseSpec = function () {
 	let syntax = $('#saltSyntax').val();
 
@@ -37,23 +93,25 @@ let setUseSpec = function () {
 	if (matchProcedure != null) {
 		formString = matchProcedure[0]
 		formString = formString.replace('!procedure _form()\n', "").replace('!endprocedure', "")
-		alert(formString)
+		handleProcedure(formString)
 	}
 
+	// Success
 	let procedureSuccess = /!procedure _success()([\S\s]*?)!endprocedure/g;
 	let matchSuccess = procedureSuccess.exec(syntax);
 	if (matchSuccess != null) {
 		successString = matchSuccess[0]
 		successString = successString.replace('!procedure _success()\n', "").replace('!endprocedure', "")
-		alert(successString)
+		handleResult(successString, true)
 	}
 
+	// Fail
 	let procedureError = /!procedure _error()([\S\s]*?)!endprocedure/g;
 	let matchError = procedureError.exec(syntax);
 	if (matchError != null) {
 		errorString = matchError[0]
 		errorString = errorString.replace('!procedure _error()\n', "").replace('!endprocedure', "")
-		alert(errorString)
+		handleResult(errorString, false)
 	}
 }
 
@@ -70,6 +128,7 @@ $(document).ready(() => {
 	$('#finalConditionSource').on('input', () => {
 		$('#finalCondition').html($('#finalConditionSource').val());
 	});
+	// TODO: FIXING DELAY FUNCTION THAT ALWAYS SHOW NOT ONCE
 	$('#saltSyntax').on('keyup', () => {
 		delay(function () {
 			setPreview();
