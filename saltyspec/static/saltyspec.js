@@ -19,13 +19,15 @@ let setPreview = () => {
 let delay = (function () {
 	let timer = 0;
 	return function (callback, ms) {
-		clearTimeout(timer);
+		// clearTimeout(timer);
 		timer = setTimeout(callback, ms);
 	};
 })();
 
-
 function handleProcedure(procedure) {
+	// clear lineWithColon and lineWithBracket
+	lineWithColon = [];
+	lineWithBracket = [];
 	// print all line that include colon
 	let lines = procedure.split('\n');
 	for (let i = 0; i < lines.length; i++) {
@@ -128,7 +130,6 @@ $(document).ready(() => {
 	$('#finalConditionSource').on('input', () => {
 		$('#finalCondition').html($('#finalConditionSource').val());
 	});
-	// TODO: FIXING DELAY FUNCTION THAT ALWAYS SHOW NOT ONCE
 	$('#saltSyntax').on('keyup', () => {
 		delay(function () {
 			setPreview();
