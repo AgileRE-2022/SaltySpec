@@ -1,5 +1,4 @@
-var lineWithBracket = [];
-var lineWithColon = [];
+var resultProcedure = [];
 
 let compress = (s) => {
 	s = unescape(encodeURIComponent(s));
@@ -25,43 +24,46 @@ let delay = (function () {
 })();
 
 function handleProcedure(procedure) {
-	// clear lineWithColon and lineWithBracket
-	lineWithColon = [];
-	lineWithBracket = [];
-	// print all line that include colon
+	resultProcedure = [];
 	let lines = procedure.split('\n');
 	for (let i = 0; i < lines.length; i++) {
-		// label detection
-		if (lines[i].includes(':')) {
-			// remove colon symbol in string
-			let line = lines[i].replace(':', '').trim();
-			lineWithColon.push(line);
-			// button detection
-			// TODO: add support for checkbox detection
-		} else if (lines[i].includes('[')) {
-			// remove square bracket symbol in string
-			let line = lines[i].replace('[', '').replace(']', '').trim();
-			lineWithBracket.push(line);
+		if (lines[i]) {
+			if (lines[i].includes(':') && lines[i].trim().slice(-1) == ':' && lines[i + 1].includes('"')) {
+				let line = lines[i].replace(':', '').trim();
+				resultProcedure.push("Mengisi input " + line);
+				i++;
+			} else if (lines[i].includes(':') && lines[i].trim().slice(-1) == ':' && (lines[i + 1].includes('[') || lines[i + 2].includes('['))) {
+				let line = lines[i].replace(':', '').trim();
+				resultProcedure.push("Memilih value pada checkbox " + line);
+				i++;
+			} else if (lines[i].includes(':') && lines[i].trim().slice(-1) == ':' && (lines[i + 1].includes('(') || lines[i + 2].includes('('))) {
+				let line = lines[i].replace(':', '').trim();
+				resultProcedure.push("Memilih value pada radiobutton " + line);
+				i++;
+			} else if (lines[i].includes(':') && lines[i].trim().slice(-1) == ':' && (lines[i + 1].includes('^') || lines[i + 2].includes('^'))) {
+				let line = lines[i].replace(':', '').trim();
+				resultProcedure.push("Memilih value pada dropdown " + line);
+				i++;
+			} else if (lines[i].includes('[') && lines[i].trim().slice(-1) == ']') {
+				let line = lines[i].replace('[', '').replace(']', '').trim();
+				resultProcedure.push("Menekan tombol " + line);
+			}
 		}
 	}
 }
 
 function handleResult(resultString, status) {
-	let procedure = lineWithColon.map((line) => {
-		return "Mengisi input " + line
-	});
-	procedure.push("Menekan tombol " + lineWithBracket[0])
+	let procedure = [...resultProcedure];
 	let success = resultString.split('\n').filter((line) => {
 		return line.trim().length > 0
 	});
 	let successMsg = []
-	let format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|<>\/?~]/;
+	let format = /[`@#$%^&*()_+\-=\[\]{};:"\\|<>\/?~]/;
 	success.forEach(element => {
 		if (!format.test(element)) {
 			successMsg.push(element)
 		}
 	});
-	// convert sucessMsg array into string
 	let successString = successMsg.join(' ')
 	procedure.push("Muncul pesan " + successString)
 	if (status) {
@@ -75,7 +77,6 @@ function handleResult(resultString, status) {
 			$('#alternativeScenario').append(`${idx + 1}. ${line} <br>`)
 		})
 	}
-
 }
 
 
