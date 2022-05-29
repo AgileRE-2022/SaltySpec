@@ -30,6 +30,12 @@
             background-position-x: center;
             background-position-y: center;
         }
+        #btn-back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+        }
     </style>
 </head>
 
@@ -45,7 +51,7 @@
             </p>
 
             <p class="mt-5">In order to use our application, make sure to read our <br><a href="/documentation"
-                    class="btn btn-primary my-2">Documentation</a></p>
+                    class="btn btn-primary my-2 btn-rounded">Documentation</a></p>
 
         </div>
 
@@ -150,13 +156,13 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Wireframe</h5>
-                                <a href="#" id="saltDownload" class="btn btn-primary my-2">PNG</a>
                                 <p class="card-text">
-                                <div class="form-outline mb-4">
-                                    <img id="saltPreview" uml="class ExamplePreview">
-                                    <br>
-                                </div>
+                                    <div class="form-outline mb-4">
+                                        <img id="saltPreview" uml="class ExamplePreview" class="img-fluid">
+                                        <br>
+                                    </div>
                                 </p>
+                                <a href="#" id="saltDownload" class="btn btn-primary my-2 btn-rounded justify-content-end"><i class="fas fa-arrow-down me-2"></i>PNG</a>
                             </div>
                         </div>
                     </div>
@@ -164,11 +170,10 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Generated Use Case Specification</h5>
-                                <button id="specDownload" onclick="specDownload()" class="btn btn-primary my-2">PNG</button>
                                 <p class="card-text">
-                                <div class="form-outline mb-4">
-                                    <table class="table" id="table">
-                                        <thead>
+                                    <div class="form-outline mb-4">
+                                        <table class="table" id="table">
+                                            <thead>
                                             <tr>
                                                 <th scope="col"><b>#</b></th>
                                                 <th scope="col">Value</th>
@@ -178,7 +183,7 @@
                                             <tr>
                                                 <th scope="row"><b>Nama Use Case</b></th>
                                                 <td id="useCaseName">Test</td>
-
+                                                
                                             </tr>
                                             <tr>
                                                 <th scope="row"><b>Deskripsi</b></th>
@@ -206,9 +211,10 @@
                                             </tr>
                                         </tbody>
                                     </table>
-
+                                    
                                 </div>
-                                </p>
+                            </p>
+                            <button id="specDownload" onclick="specDownload()" class="btn btn-primary my-2 btn-rounded"><i class="fas fa-arrow-down me-2"></i>PNG</button>
                             </div>
                         </div>
                     </div>
@@ -223,6 +229,8 @@
     <div class="py-5">
 
     </div>
+    
+
 
     <!-- FOOTER -->
     <footer class="bg-light text-center text-black text-lg-start opacity-70 mt-5">
@@ -232,7 +240,7 @@
             <div class="row justify-content-center">
                 <!--Grid column-->
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">About this project</h5>
+                    <h5 class="fw-bold">About this project</h5>
 
                     <p>
                         This project was done under AgileRE-2022 by the topic of generating Use Case Specification from
@@ -246,7 +254,7 @@
 
                 <!--Grid column-->
                 <div class="col-lg-2 col-md-2 mb-4 mb-md-0">
-                    <h5 class="text-uppercase">External Links</h5>
+                    <h5 class="fw-bold">External Links</h5>
 
                     <a href="https://plantuml.com/salt">SALT GUI Documentation</a><br>
                     <a href="https://www.djangoproject.com/">Django</a><br>
@@ -271,9 +279,45 @@
         <!-- Copyright -->
 
     </footer>
+    <!-- FOOTER -->
+    
+    <!-- Back to top button -->
+    <button type="button" class="btn btn-primary btn-floating btn-lg justify-content-center" id="btn-back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button> 
+    
+
+ 
+    
 
     <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"></script>
-</body>
+    <script>
+      //Get the button
+      let mybutton = document.getElementById("btn-back-to-top");
 
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+      scrollFunction();
+      };
+
+      function scrollFunction() {
+      if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+      ) {
+      mybutton.style.display = "block";
+      } else {
+      mybutton.style.display = "none";
+      }
+      }
+      // When the user clicks on the button, scroll to the top of the document
+      mybutton.addEventListener("click", backToTop);
+
+      function backToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+      }
+    </script>
+</body>
 </html>
