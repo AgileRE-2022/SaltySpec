@@ -13,7 +13,6 @@ let compress = (s) => {
 let setPreview = () => {
 	let saltSyntax = $('#saltSyntax').val();
 	$('#saltPreview').attr('src', 'http://www.plantuml.com/plantuml/png/' + compress(saltSyntax))
-	$('#saltDownload').attr('href', 'http://www.plantuml.com/plantuml/png/' + compress(saltSyntax))
 }
 
 let delay = (function () {
@@ -24,19 +23,30 @@ let delay = (function () {
 	};
 })();
 
-function specDownload(){
-    html2canvas(document.querySelector("#table")).then(canvas => {
-        var dataURL = canvas.toDataURL( "image/png" );
-        var data = atob( dataURL.substring( "data:image/png;base64,".length ) ),
-            asArray = new Uint8Array(data.length);
+function specDownload() {
+	html2canvas(document.querySelector("#table")).then(canvas => {
+		var dataURL = canvas.toDataURL("image/png");
+		var data = atob(dataURL.substring("data:image/png;base64,".length)),
+			asArray = new Uint8Array(data.length);
 
-        for( var i = 0, len = data.length; i < len; ++i ) {
-            asArray[i] = data.charCodeAt(i);    
-        }
+		for (var i = 0, len = data.length; i < len; ++i) {
+			asArray[i] = data.charCodeAt(i);
+		}
 
-        var blob = new Blob( [ asArray.buffer ], {type: "image/png"} );
-        saveAs(blob, "useSpec.png");
-    });
+		var blob = new Blob([asArray.buffer], {
+			type: "image/png"
+		});
+		saveAs(blob, "useSpec.png");
+	});
+}
+
+function wireframeDownload() {
+	let saltSyntax = $('#saltSyntax').val();
+	fetch('http://www.plantuml.com/plantuml/png/' + compress(saltSyntax))
+		.then(res => res.blob())
+		.then(blob => {
+			saveAs(blob, "wireframe.png");
+		});
 }
 
 function handleProcedure(procedure) {
@@ -81,7 +91,7 @@ function handleResult(resultString, status) {
 		}
 	});
 	let successString = successMsg.join(' ')
-	procedure.push("Muncul pesan " + successString)
+	procedure.push("Muncul pesan " + '"' + successString + '"');
 	if (status) {
 		$('#mainScenario').empty();
 		procedure.forEach((line, idx) => {
