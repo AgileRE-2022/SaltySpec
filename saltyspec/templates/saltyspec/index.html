@@ -17,7 +17,10 @@
     <link href="https://mdbgo.io/marta-szymanska/mdb5-demo-free-fluent/css/mdb.min.css" rel="stylesheet" />
     <!-- favicon -->
     <link rel="icon" href="{% static 'saltyspec/images/logo.ico' %}">
-    <script type="text/javascript" src="{% static 'saltyspec.js' %}" defer></script>
+    <script type="text/javascript" src="{% static 'saltyspec.js' %}" defer></script>\
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <title id="title">SaltySpec</title>
 
     <style>
@@ -147,9 +150,11 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Wireframe</h5>
+                                <a href="#" id="saltDownload" class="btn btn-primary my-2">PNG</a>
                                 <p class="card-text">
                                 <div class="form-outline mb-4">
                                     <img id="saltPreview" uml="class ExamplePreview">
+                                    <br>
                                 </div>
                                 </p>
                             </div>
@@ -159,9 +164,10 @@
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Generated Use Case Specification</h5>
+                                <button id="specDownload" onclick="specDownload()" class="btn btn-primary my-2">PNG</button>
                                 <p class="card-text">
                                 <div class="form-outline mb-4">
-                                    <table class="table">
+                                    <table class="table" id="table">
                                         <thead>
                                             <tr>
                                                 <th scope="col"><b>#</b></th>

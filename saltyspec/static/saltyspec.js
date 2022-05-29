@@ -13,6 +13,7 @@ let compress = (s) => {
 let setPreview = () => {
 	let saltSyntax = $('#saltSyntax').val();
 	$('#saltPreview').attr('src', 'http://www.plantuml.com/plantuml/png/' + compress(saltSyntax))
+	$('#saltDownload').attr('href', 'http://www.plantuml.com/plantuml/png/' + compress(saltSyntax))
 }
 
 let delay = (function () {
@@ -22,6 +23,21 @@ let delay = (function () {
 		timer = setTimeout(callback, ms);
 	};
 })();
+
+function specDownload(){
+    html2canvas(document.querySelector("#table")).then(canvas => {
+        var dataURL = canvas.toDataURL( "image/png" );
+        var data = atob( dataURL.substring( "data:image/png;base64,".length ) ),
+            asArray = new Uint8Array(data.length);
+
+        for( var i = 0, len = data.length; i < len; ++i ) {
+            asArray[i] = data.charCodeAt(i);    
+        }
+
+        var blob = new Blob( [ asArray.buffer ], {type: "image/png"} );
+        saveAs(blob, "useSpec.png");
+    });
+}
 
 function handleProcedure(procedure) {
 	resultProcedure = [];
