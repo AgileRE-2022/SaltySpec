@@ -139,7 +139,6 @@ congratulations!
 
 !procedure _error()
 {+
-header alternative
 &lt;b&gt;error
 try again
 [ok]
@@ -419,6 +418,10 @@ form --> SALT(error)
             The Salt GUI <strong>Must contain !procedure _error()</strong>,
             since it will be used as the part that represents an alternative
             scenario. It should contain what the alternative output looks like.
+          </li>
+          <li>
+            The Salt GUI <strong>Must contain ":" before an input field</strong>,
+            since it will be used as the part that represents the input field.
           </li>
         </ol>
       </div>
