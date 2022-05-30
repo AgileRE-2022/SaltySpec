@@ -6,6 +6,9 @@
 <br>
 SaltySpec is a SALT (PlantUML)-based generator application that serves to generate Use Case Specifications from SALT GUI Wireframes Syntax. The name SaltySpec is taken from the abbreviation of the word "SALT GUI Wireframe to Use Case Specification".
 
+## Live Demo
+
+[SaltySpec](https://salty-spec.herokuapp.com/)
 
 ## Installation
 
