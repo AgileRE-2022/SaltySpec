@@ -222,7 +222,7 @@ form --&gt; SALT(error)
           <strong
             ><img
               class="mx-auto d-block"
-              src="https://lh4.googleusercontent.com/9qzVFzxPbkX_IqsJs6u7S9iP-PIRGjaQiPgsuQri9QFBKCfzNpDSAJlix49LSv1cR_byt79JjkfrQeC8cNSi6tB6Np6dyvgmi3ubM07d25xoRbbMGvvUcX__FjU5NVeMugUnInAhhFlk64A9WQ"
+              src="https://lh3.googleusercontent.com/_aDN-P5OBUntTwOXHobaBecRSEnSI7Qmmld_FPcmaH_JRDIXnbPKbg-4KT2dq1YrBrD9T1nauH7bgVKLigLQGbRz-CWpk2Sn99YYeK-BjJQczXkmEPDlpn0vMsuiiOy4JWJjMuDH9AiyQHDCGg"
               alt=""
           /></strong>
         </p>
@@ -420,11 +420,16 @@ form --> SALT(error)
             scenario. It should contain what the alternative output looks like.
           </li>
           <li>
+            The Salt GUI <strong>Must not contain header attribute in the "!procedure _success()" and "!procedure _error()"</strong>,
+            since it will break the specification output.
+          </li>
+          <li>
             The Salt GUI <strong>Must contain ":" before an input field</strong>,
             since it will be used as the part that represents the input field.
           </li>
           <li>
-            The Salt GUI <strong>Can only have one button in each interface</strong>.
+            The Salt GUI <strong>Must only have one button in each interface</strong>,
+            since it will be used as the part that represents the button.
           </li>
         </ol>
       </div>
