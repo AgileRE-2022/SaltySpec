@@ -100,6 +100,8 @@ Due to our limited time constraint, this project had some limitations. These lim
 5. The Salt GUI **Must contain !procedure _form()**, since it will be used as the part that represents GUI that is being used.
 6. The Salt GUI **Must contain !procedure _success()**, since it will be used as the part that represents the main scenario. It should contain what the desired output looks like.
 7. The Salt GUI **Must contain !procedure _error()**, since it will be used as the part that represents an alternative scenario. It should contain what the alternative output looks like.
+8. The Salt GUI **Must contain ":" before an input field**, since it will be used as the part that represents the input field.
+9. The Salt GUI **Can only have one button in each interface**.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
