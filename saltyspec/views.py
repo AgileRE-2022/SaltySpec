@@ -8,6 +8,3 @@ def index(request):
 def documentation(request):
     template = loader.get_template('saltyspec/documentation.html')
     return HttpResponse(template.render())
-def wannabeindex(request):
-    template = loader.get_template('saltyspec/wannabeindex.html')
-    return HttpResponse(template.render())

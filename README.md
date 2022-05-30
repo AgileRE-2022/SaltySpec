@@ -11,21 +11,25 @@ SaltySpec is a SALT (PlantUML)-based generator application that serves to genera
 
 There are a few steps needed to install SaltySpec, the steps consist of the following:
 
-1. SaltySpec requires Django to be installed first. In order to install Django, you can see the Documentation for Django from the link below:
-   https://docs.djangoproject.com/en/4.0/
-2. SaltySpec can be installed by cloning our github repository from the link below:
-   https://github.com/AgileRE-2022/SaltySpec
-3. Or simply download the zip file from the link below:
-   https://github.com/AgileRE-2022/SaltySpec/archive/refs/heads/main.zip
-4. Once you have installed Django and SaltySpec, you can run the app using the command “python manage.py runserver”.
+1. Make sure you have Git installed on your computer. If not, install Git from the following      link:
+   https://git-scm.com/downloads
+2. Clone the SaltySpec repository with the following code:
    ```
-   SaltySpec>python manage.py runserver
+   git clone https://github.com/AgileRE-2022/SaltySpec.git
    ```
-
-> There is an alternative method to install SaltySpec by simply using
-> the following command in the directory.
-> 
-> SaltySpec>pip install -r requirements.txt
+3. Open the SaltySpec folder and run the following command:
+   ```
+   cd SaltySpec
+   ```
+4. Run the following command to install the dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
+5. Run the follow command to run the application:
+   ```
+   python manage.py runserver
+   ```
+6. Access the application through http://127.0.0.1:8000 in your browser
 
 
 ## Usage
@@ -43,19 +47,56 @@ There are a few steps that must be done to convert the SALT GUI into Use Case Sp
 5. Input the Salt GUI code in the “Salt” field (with the specified criteria).
    ![SALT GUI Syntax field](https://lh5.googleusercontent.com/W9l2HEdPCjlWiR1gCyD2LL7XsAm_0oeb9dI1pFOMgqXqHrJd4Tfi7xgumYUtdUXSOGd-aX9gWdXtUznvlmWB4E6a2IreWd0BDy9L9QOGlHOeNDVw-tfRT_xh4pZBQ1TnivGWvrqrxLDyatgoPA)
 6. Make sure the Salt GUI has all of the specified requirements / criteria.
+   ```
+   @startuml
+
+    title ***write your use case name here***     
+
+    !unquoted procedure SALT($x)
+    "{{
+    salt
+    %invoke_procedure("_"+$x)
+    }}" as $x
+    !endprocedure
+
+    !procedure _form()
+    {+
+    ***write your code (GUI) here***
+    }
+    !endprocedure
+
+    !procedure _success()
+    {+
+    ***write your code (main scenario) here***
+    }
+    !endprocedure
+
+    !procedure _error()
+    {+
+    ***write your code (alternative scenario) here***
+    }
+    !endprocedure
+
+    (*) --> SALT(form)
+    form --> SALT(success)
+    form --> SALT(error)
+
+    @enduml
+    ```
+
 7. The completed form will generate a Use Case Specification in the form of a table.
 8. The Use Case Specification table can be exported as either pdf or png file.
 
 ## Limitations
 Due to our limited time constraint, this project had some limitations. These limitations are as follows:
 
-1. The Salt GUI can only represent a single use case.
-2. The Salt GUI is in the form of activity consisting of at least one main scenario.
-3. The Salt GUI used must implement the usage of macro.
-4. The Salt GUI Must contain Title, since it will be used as the use case title.
-5. The Salt GUI Must contain !procedure _form(), since it will be used as the part that represents GUI that is being used.
-6. The Salt GUI Must contain !procedure _success(), since it will be used as the part that represents the main scenario. It should contain what the desired output looks like.
-7. The Salt GUI Must contain !procedure _error(), since it will be used as the part that represents an alternative scenario. It should contain what the alternative output looks like.
+1. The Salt GUI can only **represent a single use case**.
+2. The Salt GUI is in the form of activity consisting of **at least one main scenario**.
+3. The Salt GUI used **must implement the usage of macro**.
+4. The Salt GUI **Must contain Title**, since it will be used as the use case title.
+5. The Salt GUI **Must contain !procedure _form()**, since it will be used as the part that represents GUI that is being used.
+6. The Salt GUI **Must contain !procedure _success()**, since it will be used as the part that represents the main scenario. It should contain what the desired output looks like.
+7. The Salt GUI **Must contain !procedure _error()**, since it will be used as the part that represents an alternative scenario. It should contain what the alternative output looks like.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
