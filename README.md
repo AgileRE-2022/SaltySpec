@@ -1,5 +1,5 @@
 <br>
-
+<br>
 <p align="center">
   <img src="https://raw.githubusercontent.com/AgileRE-2022/SaltySpec/main/saltyspec/static/saltyspec/images/logo-name.png">
 </p>
