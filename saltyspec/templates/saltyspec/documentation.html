@@ -222,7 +222,7 @@ form --&gt; SALT(error)
           <strong
             ><img
               class="mx-auto d-block"
-              src="https://lh4.googleusercontent.com/9qzVFzxPbkX_IqsJs6u7S9iP-PIRGjaQiPgsuQri9QFBKCfzNpDSAJlix49LSv1cR_byt79JjkfrQeC8cNSi6tB6Np6dyvgmi3ubM07d25xoRbbMGvvUcX__FjU5NVeMugUnInAhhFlk64A9WQ"
+              src="https://lh3.googleusercontent.com/_aDN-P5OBUntTwOXHobaBecRSEnSI7Qmmld_FPcmaH_JRDIXnbPKbg-4KT2dq1YrBrD9T1nauH7bgVKLigLQGbRz-CWpk2Sn99YYeK-BjJQczXkmEPDlpn0vMsuiiOy4JWJjMuDH9AiyQHDCGg"
               alt=""
           /></strong>
         </p>
@@ -246,62 +246,23 @@ form --&gt; SALT(error)
         <p>
           <img
             class="mx-auto d-block"
-            src="https://lh3.googleusercontent.com/PNqv3dUg4mXLWlOizvkXI8bCSqIiYog63oI6HDypAJPZMrbiK_BcVz1OMyy1Ce-YvJ6fAansqr-Btw40ZqYtIdIjXkcwmtaGVx30Hr6fbCXmXLLBzVrDXQQUROGGBoU1vCrbdmxjWtAlD3ymKw"
+            src="https://user-images.githubusercontent.com/11147011/171878791-2b056665-7c60-4674-b45e-1f95bdb5e02a.png"
             alt=""
           />
         </p>
         <ol start="2">
           <li>
-            Input the description of the use case in the “Deskripsi” field.
+            Input the Salt GUI code in the “Salt” field (with the specified criteria).
           </li>
         </ol>
         <p>
           <img
             class="mx-auto d-block"
-            src="https://lh6.googleusercontent.com/9rFPBZQHHVcaI9NC0892pxjFgXbuchrrrXy752hwQucQNQwKSgoa6S8WYDQ6a3QvRlaD56F_HQgMzfUU7-pZ_Pw83JzalDnRb7QsFGut658JPhhA0w7H_HIjVEVRDI2A3UMkYz3JYl-xw2wJxA"
+            src="https://user-images.githubusercontent.com/11147011/171879113-3cddecd2-b3d1-43af-8246-b9b1e82dfc8a.png"
             alt=""
           />
         </p>
         <ol start="3">
-          <li>
-            Input the pre-condition of the use case in the “Kondisi Awali”
-            field.
-          </li>
-        </ol>
-        <p>
-          <img
-            class="mx-auto d-block"
-            src="https://lh3.googleusercontent.com/AJdBzqBc-IsqA-AaU4sZB4PatK8t0Z6ZafcilAD8Vm51ya-vM7uKCREZGF3wMIJdFcYqr0ILMeDPUEGdFr1rRWYwMauM1sDsuvc-43ztD-mfWsZoIPdaZh3S9g6LTgCBYBlYYLMEwaZQBER-1Q"
-            alt=""
-          />
-        </p>
-        <ol start="4">
-          <li>
-            Input the end-condition of the use case in the “Kondisi Akhir”
-            field.
-          </li>
-        </ol>
-        <p>
-          <img
-            class="mx-auto d-block"
-            src="https://lh4.googleusercontent.com/I4MurFkzmk10oHyBzajD5fVa7b-rAiqUjTsel7MANPSFJl1lzEP3SCspIVx499gk5do9zObFapNAVsrvwmg6ezeHKXtW6FQzew0sfGP8g5ghRAZZ0wPWSZ2UPkNg630Ls8DWSyUd_K7mJn6SwQ"
-            alt=""
-          />
-        </p>
-        <ol start="5">
-          <li>
-            Input the Salt GUI code in the “Salt” field (with the specified
-            criteria).
-          </li>
-        </ol>
-        <p>
-          <img
-            class="mx-auto d-block"
-            src="https://lh5.googleusercontent.com/W9l2HEdPCjlWiR1gCyD2LL7XsAm_0oeb9dI1pFOMgqXqHrJd4Tfi7xgumYUtdUXSOGd-aX9gWdXtUznvlmWB4E6a2IreWd0BDy9L9QOGlHOeNDVw-tfRT_xh4pZBQ1TnivGWvrqrxLDyatgoPA"
-            alt=""
-          />
-        </p>
-        <ol start="6">
           <li>
             Make sure the Salt GUI has all of the specified requirements /
             criteria. <br>
@@ -347,8 +308,7 @@ form --> SALT(error)
             form of a table.
           </li>
           <li>
-            The Use Case Specification table can be exported as either pdf or
-            png file.
+            The Use Case Specification table can be exported as a png file.
           </li>
         </ol>
         <h1 id="how-to-install" class="font-weight-bold">How to Install</h1>
@@ -366,7 +326,7 @@ form --> SALT(error)
             <code>git clone https://github.com/AgileRE-2022/SaltySpec.git</code>
           </li>
           <li>
-            Open the SaltySpec folder and run the following command: <br>
+            Open the SaltySpec folder by running this following command: <br>
             <code>cd SaltySpec</code>
           </li>
           <li>
@@ -420,8 +380,16 @@ form --> SALT(error)
             scenario. It should contain what the alternative output looks like.
           </li>
           <li>
+            The Salt GUI <strong>Must not contain header attribute in the "!procedure _success()" and "!procedure _error()"</strong>,
+            since it will break the specification output.
+          </li>
+          <li>
             The Salt GUI <strong>Must contain ":" before an input field</strong>,
             since it will be used as the part that represents the input field.
+          </li>
+          <li>
+            The Salt GUI <strong>Must only have one button in each interface</strong>,
+            since it will be used as the part that represents the button.
           </li>
         </ol>
       </div>
