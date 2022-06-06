@@ -42,7 +42,7 @@ function specDownload() {
 
 function wireframeDownload() {
 	let saltSyntax = $('#saltSyntax').val();
-	fetch('http://www.plantuml.com/plantuml/png/' + compress(saltSyntax))
+	fetch('https://www.plantuml.com/plantuml/png/' + compress(saltSyntax))
 		.then(res => res.blob())
 		.then(blob => {
 			saveAs(blob, "wireframe.png");
