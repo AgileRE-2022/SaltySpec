@@ -12,7 +12,7 @@ let compress = (s) => {
 
 let setPreview = () => {
 	let saltSyntax = $('#saltSyntax').val();
-	$('#saltPreview').attr('src', 'http://www.plantuml.com/plantuml/png/' + compress(saltSyntax))
+	$('#saltPreview').attr('src', 'https://www.plantuml.com/plantuml/png/' + compress(saltSyntax))
 }
 
 let delay = (function () {
